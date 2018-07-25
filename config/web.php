@@ -11,8 +11,22 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+//    'catchAll' => [
+//        'site/notice',
+//        'post',
+//        'param1' => 'value1',
+//        'param2' => 'value2',
+//    ],
+    'modules'=>[
+        'forum' => [
+            'class'=>'app\modules\forum\Module'
+        ],
+    ],
+
+    'defaultRoute' => 'forum/post/index',
     'components' => [
         'request' => [
+            'enableCsrfValidation' => false,
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'unbaRbXa6slkgYXxQSrGNOB4mEQvKXFX',
         ],
@@ -43,14 +57,17 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => true,
             'rules' => [
+                '<controller>/<action>' => '<controller>/<action>',
+                '<module>/<controller>/<action>' => '<module>/<controller>/<action>',
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];

@@ -142,4 +142,13 @@ class SiteController extends Controller
         }
         return $this->render('entry', ['model' => $model]);
     }
+
+    public function actionNotice($param1,$param2)
+    {
+//        echo $param1;
+//        echo $param2;
+        print_r(\Yii::$app->getRequest()->get());
+        echo '<br>';
+        print_r(\Yii::$app->getRequest()->post());
+    }
 }

@@ -9,7 +9,11 @@
 namespace app\modules\forum;
 
 
-class Moudle
+class Module extends \yii\base\Module
 {
+    public function init()
+    {
+        parent :: init();
+    }
 
 }
