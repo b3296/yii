@@ -15,11 +15,16 @@ class EntryForm extends Model
 {
     public $name;
     public $email;
+    public $password;
+    public $username;
+    public $uploadFile;
+    public $items;
     public function rules()
     {
         return [
-            [['name','email'],'required'],
-            ['email','email']
+            [['name','email','password','username'],'required'],
+            ['email','email'],
+            [['uploadFile'],'file','maxFiles' => 5],
         ];
 
     }
